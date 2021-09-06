@@ -7,7 +7,7 @@ var particles = [];
 var plinkos = [];
 var divisions =[];
 var divisionHeight=300;
-var score =0;
+
 function setup() {
   createCanvas(800, 800);
   engine = Engine.create();
@@ -60,7 +60,7 @@ function draw() {
   }
 
   if(frameCount%60===0) {
-    particles.push(new particles(random(width/2-30),10, 10))
+    particles.push(new Particles(random(0,800),0))
   }
 
   //display the divisions
@@ -69,7 +69,9 @@ function draw() {
   }
 
   //create the particles using frameCount
-
+  for (var k = 0; k < particles.length; k++) {
+    particles[k].display();
+  }
   //display the particles 
 for (var j = 0; j < particles.length; j++) {
   particles[j].display();
